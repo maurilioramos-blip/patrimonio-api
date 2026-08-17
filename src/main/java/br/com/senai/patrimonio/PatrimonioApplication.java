@@ -30,6 +30,7 @@ public class PatrimonioApplication {
 
 		Endereco enderecoComArgumento = new Endereco("Líbano", "489", "perto da Pizzaria",
 		"Venda Nova", "Belo Horizonte", "MG");
+
 		System.out.println(enderecoComArgumento.getBairro());
 	}
 }
