@@ -5,14 +5,21 @@ public class Pessoa {
     private String nome;
     private String cpf;
 
-    public Pessoa() {
+    public Pessoa(){}
 
-    }
-public Pessoa(Long id, String nome, String cpf) {
+    public Pessoa(Long id, String nome, String cpf) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
-}
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
@@ -28,13 +35,5 @@ public Pessoa(Long id, String nome, String cpf) {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 }

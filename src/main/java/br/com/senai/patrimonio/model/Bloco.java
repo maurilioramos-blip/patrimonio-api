@@ -5,11 +5,9 @@ public class Bloco {
     private String nome;
     private Empresa empresa;
 
-    public Bloco() {
+    public Bloco (){}
 
-    }
-
-    public Bloco(Long id, String nome, Empresa Empresa) {
+    public Bloco(Long id, String nome, Empresa empresa) {
         this.id = id;
         this.nome = nome;
         this.empresa = empresa;
@@ -23,19 +21,19 @@ public class Bloco {
         this.id = id;
     }
 
-    public Empresa getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(Empresa Empresa) {
-        this.empresa = empresa;
-    }
-
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
 }

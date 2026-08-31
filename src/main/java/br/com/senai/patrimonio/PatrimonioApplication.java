@@ -2,15 +2,14 @@ package br.com.senai.patrimonio;
 
 import br.com.senai.patrimonio.model.Empresa;
 import br.com.senai.patrimonio.model.Endereco;
-import br.com.senai.patrimonio.service.ServiceTest;
+import br.com.senai.patrimonio.model.Funcionario;
+import br.com.senai.patrimonio.model.Sala;
+import br.com.senai.patrimonio.model.enums.Cargo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class PatrimonioApplication {
-
-	public PatrimonioApplication() {
-	}
 
 	public static void main(String[] args) {
 
@@ -21,16 +20,28 @@ public class PatrimonioApplication {
 		System.out.println(empresa.getRazaoSocial());
 
 		Endereco endereco = new Endereco();
-		endereco.setRua("Rua Morganita");
+		endereco.setRua("Bela vista");
 		System.out.println(endereco.getRua());
+		System.out.println(endereco.getBairro());
 
-		Endereco bairro = new Endereco();
-		bairro.setBairro("Venda Nova");
-		System.out.println(bairro.getBairro());
+		empresa.setEndereco(endereco);
+		System.out.println(empresa.getEndereco().getRua());
 
-		Endereco enderecoComArgumento = new Endereco("Líbano", "489", "perto da Pizzaria",
-		"Venda Nova", "Belo Horizonte", "MG");
+		Endereco enderecoComArgumentos = new Endereco("Líbano jose gomes",
+				"489", "Perto do posto de saúde",
+				"Santa luzia","Criciúma", "SC");
+		System.out.println(enderecoComArgumentos.getBairro());
 
-		System.out.println(enderecoComArgumento.getBairro());
+		Sala sala = new Sala();
+
+		Funcionario funcionario = new Funcionario(
+				35L,"Mariazinha","13456789",
+				Cargo.GERENTE, empresa, sala
+		);
+
+		System.out.println(funcionario.getCpf());
+
+
 	}
+
 }
