@@ -4,22 +4,22 @@ import br.com.senai.patrimonio.avalicao.Enum.StatusEvento;
 
 public class Evento {
 
-    private String StatusEvento;
     private int codigo;
-        private String nome;
-        private String local;
-        private StatusEvento Status;
-        private Participante responsavel;
+    private String StatusEvento;
+    private String nome;
+    private String local;
+    private StatusEvento status;
+    private Participante responsavel;
 
-        public Evento(String statusEvento) {
-            StatusEvento = statusEvento;
-        }
-        public Evento(int codigo, String nome, String local, String Status_Evento) {
-            this.codigo = codigo;
-            this.nome = nome;
-            this.local = local;
-            this.StatusEvento = Status_Evento;
-        }
+    public Evento() {
+    }
+
+    public Evento(int codigo, String nome, String local, String Status_Evento) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.local = local;
+        this.StatusEvento = Status_Evento;
+    }
 
     public int getCodigo() {
         return codigo;

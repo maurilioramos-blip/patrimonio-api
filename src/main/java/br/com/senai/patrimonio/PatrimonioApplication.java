@@ -1,5 +1,6 @@
 package br.com.senai.patrimonio;
 
+import br.com.senai.patrimonio.avalicao.Enum.Nivel;
 import br.com.senai.patrimonio.avalicao.Participante;
 import br.com.senai.patrimonio.model.Empresa;
 import br.com.senai.patrimonio.model.Endereco;
@@ -49,10 +50,14 @@ public class PatrimonioApplication {
         System.out.println(PagamentoComposto.PIX);
         System.out.println(PagamentoComposto.PIX.getSituacao());
 
-        Participante participante = new Participante("nome", "email", "telefone", "matricula", "nivel");
+        Participante participante = new Participante("nome", "email", "telefone", "matricula", Nivel.AVANCADO);
         System.out.println("Nome: " + participante.getNome());
         System.out.println("Email: " + participante.getEmail());
         System.out.println("Telefone: " + participante.getTelefone());
         System.out.println("Matricula: " + participante.getMatricula());
+
+        Participante participante2 = new Participante(
+                "Joao", "joao@yahoo.com", "048996887914", "123456",Nivel.AVANCADO
+        );
     }
 }

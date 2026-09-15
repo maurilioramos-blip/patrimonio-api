@@ -1,12 +1,14 @@
 package br.com.senai.patrimonio.avalicao;
 
+import br.com.senai.patrimonio.avalicao.Enum.Nivel;
+
 public class Participante extends Pessoa {
     private String matricula;
-    private String nivel;
+    private Nivel nivel;
 
   public Participante(){}
 
-    public Participante(String nome, String email, String telefone, String matricula, String nivel) {
+    public Participante(String nome, String email, String telefone, String matricula, Nivel nivel) {
         super(nome, email, telefone);
         this.matricula = matricula;
         this.nivel = nivel;
@@ -20,11 +22,11 @@ public class Participante extends Pessoa {
         this.matricula = matricula;
     }
 
-    public String getNivel() {
+    public Nivel getNivel() {
         return nivel;
     }
 
-    public void setNivel(String nivel) {
+    public void setNivel(Nivel nivel) {
         this.nivel = nivel;
     }
 }

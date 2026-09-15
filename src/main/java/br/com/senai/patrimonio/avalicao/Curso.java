@@ -1,18 +1,19 @@
 package br.com.senai.patrimonio.avalicao;
 
-public class Curso {
+public class Curso extends Evento{
     private String instrutor;
     private int cargaHoraria;
     private int quantidadeVagas;
 
     public Curso() {}
 
-    public Curso(String instrutor, int cargaHoraria, int quantidadeVagas) {
+    public Curso(int codigo, String nome, String local, String Status_Evento, String instrutor, int cargaHoraria, int quantidadeVagas) {
+        super(codigo, nome, local, Status_Evento);
         this.instrutor = instrutor;
         this.cargaHoraria = cargaHoraria;
         this.quantidadeVagas = quantidadeVagas;
     }
-
+    
     public String getInstrutor() {
         return instrutor;
     }

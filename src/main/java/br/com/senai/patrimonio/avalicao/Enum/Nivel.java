@@ -4,8 +4,4 @@ public enum Nivel {
     INICIANTE,
     INTERMEDIARIO,
     AVANCADO;
-
-
-
-
 }
