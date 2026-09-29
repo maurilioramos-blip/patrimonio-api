@@ -2,11 +2,9 @@ package br.com.senai.patrimonio;
 
 import br.com.senai.patrimonio.avalicao.Enum.Nivel;
 import br.com.senai.patrimonio.avalicao.Participante;
-import br.com.senai.patrimonio.model.Empresa;
-import br.com.senai.patrimonio.model.Endereco;
-import br.com.senai.patrimonio.model.Funcionario;
-import br.com.senai.patrimonio.model.Sala;
+import br.com.senai.patrimonio.model.*;
 import br.com.senai.patrimonio.model.enums.Cargo;
+import br.com.senai.patrimonio.model.enums.EstadoConservacao;
 import br.com.senai.patrimonio.model.enums.Pagamento;
 import br.com.senai.patrimonio.model.enums.PagamentoComposto;
 import org.springframework.boot.SpringApplication;
@@ -57,7 +55,22 @@ public class PatrimonioApplication {
         System.out.println("Matricula: " + participante.getMatricula());
 
         Participante participante2 = new Participante(
-                "Joao", "joao@yahoo.com", "048996887914", "123456",Nivel.AVANCADO
+                "Joao", "joao@yahoo.com", "048996887914",
+                "123456",Nivel.AVANCADO
         );
+
+        Empresa empresaInterface = new Empresa();
+
+        Bloco blocoInterface = new Bloco(1L, "Bloco 2", empresaInterface);
+
+        Sala salaInterface = new Sala(2L, "Lab 2", "45678", blocoInterface, empresa);
+
+        System.out.println(salaInterface.getDescricaoLocalizavel());
+
+        Patrimonio patrimonio = new Patrimonio();
+        System.out.println(patrimonio.validarEstadoConservacao());
+
+        patrimonio.setEstado(EstadoConservacao.INSERVIVEL);
+        System.out.println(patrimonio.validarEstadoConservacao());
     }
 }

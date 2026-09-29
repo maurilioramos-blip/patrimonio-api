@@ -1,33 +1,37 @@
 package br.com.senai.patrimonio.model;
 
-import br.com.senai.patrimonio.model.enums.EstacaoConservacao;
+import br.com.senai.patrimonio.model.enums.EstadoConservacao;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class Patrimonio {
+public class Patrimonio implements BucarConservacao {
     private long id;
     private Bem bem;
-    private Sala sala;;
+    private Sala sala;
+    ;
     private Funcionario funcionario;
     private Integer quantidade;
-    public EstacaoConservacao estado;
+    public EstadoConservacao estado;
     private LocalDate dataAquisicao;
     private BigDecimal valor;
 
     public Patrimonio() {
     }
+
     // Alocar este patrimônio em uma sala e garante que ele sai da responsabilidade
     // de um funcionário//
     public void alocarEmSala(Sala sala) {
         this.sala = sala;
         this.funcionario = null;
     }
+
     //Aloca este patrimônio sobre responsabilidade de um funcionário//
     public void alocarParaFuncionario(Funcionario funcionario) {
         this.funcionario = funcionario;
         this.sala = null;
     }
+
     // Retorna true se possuír uma sala ou um funcionario vinculado ao patrimônio//
     public boolean possuiLocalizacaoValida() {
         return (sala != null) || (funcionario != null);
@@ -77,11 +81,11 @@ public class Patrimonio {
         this.quantidade = quantidade;
     }
 
-    public EstacaoConservacao getEstado() {
+    public EstadoConservacao getEstado() {
         return estado;
     }
 
-    public void setEstado(EstacaoConservacao estado) {
+    public void setEstado(EstadoConservacao estado) {
         this.estado = estado;
     }
 
@@ -99,5 +103,10 @@ public class Patrimonio {
 
     public void setValor(BigDecimal valor) {
         this.valor = valor;
+    }
+
+    @Override
+    public String validarEstadoConservacao() {
+        return this.estado != null ? this.estado.toString() : "SEM ESTADO DE CONSERVÇÃO";
     }
 }

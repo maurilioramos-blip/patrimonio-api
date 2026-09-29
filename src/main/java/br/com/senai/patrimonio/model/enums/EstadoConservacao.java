@@ -1,6 +1,6 @@
 package br.com.senai.patrimonio.model.enums;
 
-public enum EstacaoConservacao {
+public enum EstadoConservacao {
     NOVO("Novo", 0.05),
     BOM("Bom", 0.10),
     REGULAR("Regular", 0.20),
@@ -11,7 +11,7 @@ public enum EstacaoConservacao {
     private final String descricao;
     private final double taxaDepreciacaoAnual;
 
-    EstacaoConservacao(String descricao, double taxaDepreciacaoAnual) {
+    EstadoConservacao(String descricao, double taxaDepreciacaoAnual) {
         this.descricao = descricao;
         this.taxaDepreciacaoAnual = taxaDepreciacaoAnual;
     }
