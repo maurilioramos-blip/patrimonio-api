@@ -41,7 +41,7 @@ public class PatrimonioApplication {
                 Cargo.GERENTE, empresa, sala
         );
 
-        System.out.println(funcionario.getCpf());
+        System.out.println(funcionario.getCPF());
 
         System.out.println(Pagamento.PIX);
         System.out.println(PagamentoComposto.PIX.getDescricao());
@@ -72,5 +72,50 @@ public class PatrimonioApplication {
 
         patrimonio.setEstado(EstadoConservacao.INSERVIVEL);
         System.out.println(patrimonio.validarEstadoConservacao());
+
+        Bem bem = new Bem();
+        System.out.println(bem.getEmpresaVinculada());
+
+        Empresa empresa1 = new Empresa();
+        bem.setEmpresa(empresa1);
+        System.out.println(bem.getEmpresaVinculada());
+
+        empresa1.setNome("SENAI");
+        System.out.println(bem.getEmpresa().getNome());
+
+        System.out.println(empresa1.getEndereco());;
+
+        System.out.println("Teste do Bloco");
+        Bloco bloco = new Bloco();
+        System.out.println(bloco.getEmpresaVinculada());
+
+        bloco.setEmpresa(empresa1);
+        System.out.println(bloco.getEmpresaVinculada());
+
+        System.out.println("Teste de Funcionário");
+        Funcionario funcionario1 = new Funcionario();
+        System.out.println(funcionario1.getEmpresaVinculada());
+
+        funcionario1.setEmpresa(empresa1);
+        System.out.println(funcionario1.getEmpresaVinculada());
+
+        System.out.println("TEsta de Sala");
+        Sala sala1 = new Sala();
+        System.out.println(sala1.getEmpresaVinculada());
+
+        sala1.setEmpresa(empresa1);
+        System.out.println(sala1.getEmpresaVinculada());
+
+        Pessoa pessoa = new Pessoa();
+
+        pessoa.setNome("Joãozinho");
+        pessoa.setCPF("12345678");
+        System.out.println(pessoa.getIdentificacao());
+
+
+        funcionario1.setNome("Mariazinha");
+        funcionario1.setCPF("12345678");
+        funcionario1.setCargo(Cargo.DIRETOR);
+        System.out.println(funcionario1.getIdentificacao());
     }
 }
