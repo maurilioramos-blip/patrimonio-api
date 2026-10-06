@@ -1,5 +1,8 @@
 package br.com.senai.patrimonio;
 
+import br.com.senai.patrimonio.atividades.Computador;
+import br.com.senai.patrimonio.atividades.Equipamento;
+import br.com.senai.patrimonio.atividades.Veiculo;
 import br.com.senai.patrimonio.avalicao.Enum.Nivel;
 import br.com.senai.patrimonio.avalicao.Participante;
 import br.com.senai.patrimonio.model.*;
@@ -7,8 +10,12 @@ import br.com.senai.patrimonio.model.enums.Cargo;
 import br.com.senai.patrimonio.model.enums.EstadoConservacao;
 import br.com.senai.patrimonio.model.enums.Pagamento;
 import br.com.senai.patrimonio.model.enums.PagamentoComposto;
+import ch.qos.logback.core.joran.spi.ConsoleTarget;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import javax.sound.midi.Soundbank;
+import java.sql.SQLOutput;
 
 @SpringBootApplication
 public class PatrimonioApplication {
@@ -56,7 +63,7 @@ public class PatrimonioApplication {
 
         Participante participante2 = new Participante(
                 "Joao", "joao@yahoo.com", "048996887914",
-                "123456",Nivel.AVANCADO
+                "123456", Nivel.AVANCADO
         );
 
         Empresa empresaInterface = new Empresa();
@@ -83,7 +90,8 @@ public class PatrimonioApplication {
         empresa1.setNome("SENAI");
         System.out.println(bem.getEmpresa().getNome());
 
-        System.out.println(empresa1.getEndereco());;
+        System.out.println(empresa1.getEndereco());
+        ;
 
         System.out.println("Teste do Bloco");
         Bloco bloco = new Bloco();
@@ -117,5 +125,24 @@ public class PatrimonioApplication {
         funcionario1.setCPF("12345678");
         funcionario1.setCargo(Cargo.DIRETOR);
         System.out.println(funcionario1.getIdentificacao());
+
+        System.out.println("........Atividades..........");
+
+        Equipamento equipamento = new Equipamento("Impressora", 2000.00);
+        Equipamento computador = new Computador("Notebook Dell", 5000.00);
+        Equipamento veiculo = new Veiculo("Computador Science", 5000.00);
+
+        exibirRelatorio(equipamento);
+        exibirRelatorio(computador);
+        exibirRelatorio(veiculo);
+    }
+    public static void exibirRelatorio(Equipamento item) {
+        System.out.println("Item: " + item.getNome());
+        System.out.println("Valor Inicial: R$ " + item.getValorInicial());
+
+        System.out.println("Valor da Depreciação: R$ " + item.calcularDepreciacao());
+
+        System.out.println("-------------------------------------------");
+
     }
 }
