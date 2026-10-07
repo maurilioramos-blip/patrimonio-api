@@ -1,11 +1,10 @@
 package br.com.senai.patrimonio;
 
-import br.com.senai.patrimonio.atividades.Computador;
-import br.com.senai.patrimonio.atividades.Equipamento;
-import br.com.senai.patrimonio.atividades.Veiculo;
+import br.com.senai.patrimonio.atividades.*;
 import br.com.senai.patrimonio.avalicao.Enum.Nivel;
 import br.com.senai.patrimonio.avalicao.Participante;
 import br.com.senai.patrimonio.model.*;
+import br.com.senai.patrimonio.model.Funcionario;
 import br.com.senai.patrimonio.model.enums.Cargo;
 import br.com.senai.patrimonio.model.enums.EstadoConservacao;
 import br.com.senai.patrimonio.model.enums.Pagamento;
@@ -107,7 +106,7 @@ public class PatrimonioApplication {
         funcionario1.setEmpresa(empresa1);
         System.out.println(funcionario1.getEmpresaVinculada());
 
-        System.out.println("TEsta de Sala");
+        System.out.println("Testa de Sala");
         Sala sala1 = new Sala();
         System.out.println(sala1.getEmpresaVinculada());
 
@@ -126,7 +125,7 @@ public class PatrimonioApplication {
         funcionario1.setCargo(Cargo.DIRETOR);
         System.out.println(funcionario1.getIdentificacao());
 
-        System.out.println("........Atividades..........");
+        System.out.println("........Atividades 1..........");
 
         Equipamento equipamento = new Equipamento("Impressora", 2000.00);
         Equipamento computador = new Computador("Notebook Dell", 5000.00);
@@ -135,14 +134,38 @@ public class PatrimonioApplication {
         exibirRelatorio(equipamento);
         exibirRelatorio(computador);
         exibirRelatorio(veiculo);
+
+        System.out.println("------------ATIVIDADES 2---------------");
+
+        br.com.senai.patrimonio.atividades.Funcionario funcionario2 =
+                new br.com.senai.patrimonio.atividades.Funcionario("João", 2000.00);
+        br.com.senai.patrimonio.atividades.Funcionario gerente =
+                new Gerente("Maurilio", 1000.00);
+        br.com.senai.patrimonio.atividades.Funcionario desenvolvedor =
+                new Desenvolvedor("Mariazinha", 1000.00);
+
+        imprimirContraCheque(funcionario2);
+        imprimirContraCheque(gerente);
+        imprimirContraCheque(desenvolvedor);
     }
+
     public static void exibirRelatorio(Equipamento item) {
         System.out.println("Item: " + item.getNome());
         System.out.println("Valor Inicial: R$ " + item.getValorInicial());
-
         System.out.println("Valor da Depreciação: R$ " + item.calcularDepreciacao());
+        System.out.println("-----------------------------------");
 
-        System.out.println("-------------------------------------------");
+    }
 
+    public static void imprimirContraCheque(br.com.senai.patrimonio.atividades.Funcionario funcionario) {
+        System.out.println("Funcionário: " + funcionario.getNome());
+        System.out.println("Salário Base: R$ " + funcionario.getSalarioBase());
+
+        System.out.println(funcionario.calcularBonificacao());
+
+        System.out.println(funcionario.getSalarioBase());
+        funcionario.calcularBonificacao();
+
+        System.out.println("------------------------------------");
     }
 }

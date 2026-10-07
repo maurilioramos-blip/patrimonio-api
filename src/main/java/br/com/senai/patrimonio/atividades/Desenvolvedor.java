@@ -10,6 +10,5 @@ public class Desenvolvedor extends Funcionario {
         @Override
         public double calcularBonificacao () {
             return getSalarioBase() * 0.15;
-
     }
 }

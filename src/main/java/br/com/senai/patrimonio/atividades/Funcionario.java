@@ -21,5 +21,4 @@ public class Funcionario {
             return this.salarioBase * 0.05;
 
         }
-
 }
